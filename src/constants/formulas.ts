@@ -1,0 +1,55 @@
+export type F = { g: string; t: string; f: string };
+
+// Starter formulas. Check them against your own syllabus; you can add your own inside the app.
+export const formulas: Record<string, F[]> = {
+  Maths: [
+    { g: 'Differentiation', t: 'Standard derivatives', f: 'd/dx (xⁿ) = n xⁿ⁻¹\nd/dx (eˣ) = eˣ\nd/dx (aˣ) = aˣ ln a\nd/dx (ln x) = 1/x\nd/dx (sin x) = cos x\nd/dx (cos x) = −sin x\nd/dx (tan x) = sec² x\nd/dx (sin⁻¹x) = 1/√(1−x²)\nd/dx (tan⁻¹x) = 1/(1+x²)' },
+    { g: 'Differentiation', t: 'Rules', f: 'Product: (uv)′ = u′v + uv′\nQuotient: (u/v)′ = (u′v − uv′)/v²\nChain: dy/dx = (dy/du)(du/dx)' },
+    { g: 'Integration', t: 'Standard integrals', f: '∫ xⁿ dx = xⁿ⁺¹/(n+1) + C   (n ≠ −1)\n∫ 1/x dx = ln|x| + C\n∫ eˣ dx = eˣ + C\n∫ sin x dx = −cos x + C\n∫ cos x dx = sin x + C\n∫ sec² x dx = tan x + C\n∫ 1/(1+x²) dx = tan⁻¹x + C\n∫ 1/√(1−x²) dx = sin⁻¹x + C' },
+    { g: 'Integration', t: 'By parts', f: '∫ u dv = uv − ∫ v du\n(choose u by ILATE: Inverse, Log, Algebraic, Trig, Exponential)' },
+    { g: 'Series', t: 'Taylor and Maclaurin', f: 'Taylor: f(x) = f(a) + (x−a)f′(a) + (x−a)²/2! f″(a) + …\nMaclaurin: f(x) = f(0) + x f′(0) + x²/2! f″(0) + …' },
+    { g: 'Series', t: 'Common expansions', f: 'eˣ = 1 + x + x²/2! + x³/3! + …\nsin x = x − x³/3! + x⁵/5! − …\ncos x = 1 − x²/2! + x⁴/4! − …\nlog(1+x) = x − x²/2 + x³/3 − …   (−1 < x ≤ 1)\n(1+x)ⁿ = 1 + nx + n(n−1)x²/2! + …' },
+    { g: 'Partial derivatives', t: 'Key results', f: "Euler's theorem (f homogeneous, degree n):\n  x ∂f/∂x + y ∂f/∂y = n f\nTotal derivative: dz/dt = ∂z/∂x · dx/dt + ∂z/∂y · dy/dt\nJacobian: J = ∂(u,v)/∂(x,y)" },
+    { g: 'Partial derivatives', t: 'Maxima and minima (2 variables)', f: 'Solve fx = 0, fy = 0. Let r = fxx, s = fxy, t = fyy.\nrt − s² > 0 and r < 0 → maximum\nrt − s² > 0 and r > 0 → minimum\nrt − s² < 0 → saddle point\nrt − s² = 0 → test fails' },
+    { g: 'Matrices', t: 'Eigenvalues and inverse', f: 'Characteristic equation: |A − λI| = 0\nSum of eigenvalues = trace of A\nProduct of eigenvalues = |A|\nCayley-Hamilton: A satisfies its own characteristic equation\nA⁻¹ = adj(A) / |A|' },
+    { g: 'Multiple integrals', t: 'Coordinate changes', f: 'Polar: x = r cosθ, y = r sinθ, dx dy = r dr dθ\nCylindrical: dV = r dr dθ dz\nSpherical: dV = r² sinθ dr dθ dφ' },
+    { g: 'Multiple integrals', t: 'Gamma and Beta', f: 'Γ(n+1) = n Γ(n),  Γ(n+1) = n!  (n integer)\nΓ(1/2) = √π\nB(m,n) = Γ(m)Γ(n) / Γ(m+n)' },
+    { g: 'Vector calculus', t: 'Operators', f: '∇φ = i ∂φ/∂x + j ∂φ/∂y + k ∂φ/∂z\ndiv F = ∂P/∂x + ∂Q/∂y + ∂R/∂z   (F = P i + Q j + R k)\ncurl F = ∇ × F\nDirectional derivative = ∇φ · â' },
+    { g: 'Vector calculus', t: 'Integral theorems', f: "Green: ∮ (P dx + Q dy) = ∬ (∂Q/∂x − ∂P/∂y) dx dy\nStokes: ∮ F·dr = ∬ (curl F)·n dS\nGauss (divergence): ∯ F·n dS = ∭ div F dV" },
+  ],
+  Physics: [
+    { g: 'Interference', t: 'Thin film (reflected light)', f: 'Maxima: 2μt cos r = (2n+1) λ/2\nMinima: 2μt cos r = n λ\nFringe width (Young): β = λD / d' },
+    { g: 'Interference', t: "Newton's rings (reflected, dark rings)", f: 'rₙ² = n λ R\nDₙ² = 4 n λ R\nλ = (Dₙ₊ₚ² − Dₙ²) / (4 p R)' },
+    { g: 'Diffraction', t: 'Slit and grating', f: 'Single slit minima: a sinθ = n λ\nGrating: (a + b) sinθ = n λ\nResolving power of grating: R = λ/dλ = n N' },
+    { g: 'Polarization', t: 'Laws', f: "Malus: I = I₀ cos²θ\nBrewster: tan θp = μ\nQuarter wave plate: t = λ / [4(μo − μe)]\nHalf wave plate: t = λ / [2(μo − μe)]" },
+    { g: 'Laser', t: 'Einstein relations', f: 'A₂₁ / B₂₁ = 8π h ν³ / c³\nN₂ / N₁ = e^(−hν / kT)\nE = hν' },
+    { g: 'Optical fibre', t: 'Key formulas', f: 'NA = √(n₁² − n₂²)\nAcceptance angle: θ₀ = sin⁻¹(NA / n₀)\nRelative index: Δ = (n₁ − n₂) / n₁\nV number = (2π a / λ) · NA' },
+    { g: 'Quantum', t: 'Basics', f: 'de Broglie: λ = h/p = h / √(2mE)\nUncertainty: Δx Δp ≥ ħ/2\nSchrödinger (time independent):\n  d²ψ/dx² + (2m/ħ²)(E − V)ψ = 0' },
+    { g: 'Quantum', t: 'Particle in 1-D box', f: 'Eₙ = n² h² / (8 m L²)\nψₙ(x) = √(2/L) sin(nπx / L)' },
+    { g: 'Relativity', t: 'Special relativity', f: 't = t₀ / √(1 − v²/c²)\nL = L₀ √(1 − v²/c²)\nm = m₀ / √(1 − v²/c²)\nE = mc²' },
+    { g: 'Electromagnetism', t: "Maxwell's equations", f: '∇·D = ρ\n∇·B = 0\n∇×E = −∂B/∂t\n∇×H = J + ∂D/∂t' },
+    { g: 'Constants', t: 'Useful values', f: 'h = 6.626 × 10⁻³⁴ J·s\nc = 3 × 10⁸ m/s\ne = 1.602 × 10⁻¹⁹ C\nmₑ = 9.109 × 10⁻³¹ kg\nk = 1.381 × 10⁻²³ J/K' },
+  ],
+  Mechanical: [
+    { g: 'Forces', t: 'Resultant and equilibrium', f: 'Equilibrium: ΣFx = 0, ΣFy = 0, ΣM = 0\nResultant: R = √[(ΣFx)² + (ΣFy)²]\ntan α = ΣFy / ΣFx\nTwo forces: R = √(P² + Q² + 2PQ cosθ)' },
+    { g: 'Forces', t: "Lami's theorem and moments", f: "Lami: P / sin α = Q / sin β = R / sin γ\nMoment: M = F × d\nVarignon: moment of resultant = sum of moments of components" },
+    { g: 'Friction', t: 'Laws of friction', f: 'F ≤ μ N\nμ = tan φ   (φ = angle of friction)\nOn an incline (limiting): tan θ = μ' },
+    { g: 'Kinematics', t: 'Equations of motion', f: 'v = u + a t\ns = u t + ½ a t²\nv² = u² + 2 a s' },
+    { g: 'Kinematics', t: 'Projectile', f: 'Time of flight: T = 2u sinθ / g\nMax height: H = u² sin²θ / (2g)\nRange: R = u² sin 2θ / g' },
+    { g: 'Dynamics', t: 'Newton and energy', f: 'F = m a\nWork = F · s\nWork-energy: W = ΔKE = ½mv² − ½mu²\nPower = W / t = F v' },
+    { g: 'Properties of sections', t: 'Centroid and moment of inertia', f: 'Centroid: x̄ = Σ(A x) / ΣA\nRectangle (centroidal): I = b d³ / 12\nRectangle (about base): I = b d³ / 3\nCircle: I = π d⁴ / 64\nTriangle (about base): I = b h³ / 12\nParallel axis: I = Ī + A h²\nPerpendicular axis: Iz = Ix + Iy' },
+  ],
+  BME: [
+    { g: 'Thermodynamics', t: 'Laws and gas equation', f: 'First law: Q = ΔU + W\nIdeal gas: P V = m R T\nCp − Cv = R\nγ = Cp / Cv' },
+    { g: 'Thermodynamics', t: 'Work in processes', f: 'Isothermal: W = P₁V₁ ln(V₂/V₁)\nAdiabatic: P V^γ = constant\n  W = (P₁V₁ − P₂V₂) / (γ − 1)\nConstant pressure: W = P (V₂ − V₁)' },
+    { g: 'Heat engines', t: 'Efficiency and COP', f: 'η = W / Q₁ = 1 − Q₂/Q₁\nCarnot: η = 1 − T₂/T₁\nCOP (refrigerator) = T₂ / (T₁ − T₂)\nCOP (heat pump) = T₁ / (T₁ − T₂)' },
+    { g: 'Cycles', t: 'Otto cycle', f: 'η = 1 − 1 / r^(γ−1)\nr = compression ratio = V₁ / V₂' },
+  ],
+  Civil: [
+    { g: 'Strength of materials', t: 'Stress and strain', f: 'Stress: σ = P / A\nStrain: e = δL / L\nYoung\'s modulus: E = σ / e\nElongation: δL = P L / (A E)\nPoisson\'s ratio: μ = lateral strain / longitudinal strain' },
+    { g: 'Strength of materials', t: 'Elastic constants', f: 'Shear modulus: G = τ / φ\nBulk modulus: K = p / (δV / V)\nE = 2G (1 + μ)\nE = 3K (1 − 2μ)' },
+    { g: 'Mensuration', t: 'Areas', f: 'Triangle = ½ b h\nTrapezium = ½ (a + b) h\nCircle = π r²\nSector = ½ r² θ\nEllipse = π a b' },
+    { g: 'Mensuration', t: 'Volumes', f: 'Cuboid = l b h\nCylinder = π r² h\nCone = ⅓ π r² h\nSphere = 4/3 π r³\nPrismoidal rule: V = (h/6)(A₁ + 4Am + A₂)' },
+  ],
+  PFPS: [],
+};
